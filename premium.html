@@ -1,154 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Design</title>
-  <style>
-    * {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Templates Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            text-align: center;
+        }
+
+        .header{
+        height: 55px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        background-color: rgba(255, 255, 255, 0.1);
+        border-bottom-width:1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body{
         margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-      }
-      
-      header {
+        padding-top:80px ;
+    }
+    .leftsection{
+        
+        
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 20px;
-        background-color: #333;
-        color: white;
-        cursor: default;
-      }
-      
-      header .logo {
-        font-size: 24px;
-        font-weight: bold;
-      }
-      
-      header nav ul {
-        list-style-type: none;
-      }
-      
-      header nav ul li {
-        display: inline;
+    }   
+    .hamburger-menu{
+        height: 24px;
+        margin-left: 24px;
         margin-right: 20px;
-      }
-      
-      header nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-      }
-      
-      .main-content {
-        padding: 50px 20px;
-        text-align: center;
-      }
-      
-      .main-content h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-      }
-      
-      .template-cards {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-      
-      .card {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 250px;
-      }
-      
-      .card img {
-        width: 100%;
-        border-radius: 8px;
-      }
-      
-      .card h2 {
-        font-size: 20px;
-        margin-top: 15px;
-      }
-      
-      .card p {
-        color: #666;
-        margin-top: 10px;
-      }
-      
-      .card a {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #333;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-      }
-      footer {
-        background-color: #333;
-        color: white;
-        padding: 20px;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-      }
-      footer .help-center {
+    }
+
+    .youtube-logo{
+        MARGIN-LEFT: 15PX;
+        BORDER-RADIUS: 12PX;
+        height: 48px;
+    }
+
+        .rightsection{
+            margin-right: 20px;
+            width: 180px;
+            align-items: center;
+            display: flex;
+            color: rgb(255, 255, 255);
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .hero {
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 55%;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 19px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .card {
+            height: 453px;
+            width: 60px;
+            margin: 19px;
+            flex: 0 0 33.33%;
+            padding: 13px;
+            box-sizing: border-box;
+            transition: transform 0.5s, opacity 0.5s;
+            opacity: 0.5;
+            transform: scale(0.8);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card img {
+            width: 240px;
+            height: 308px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .card button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 7px;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 97%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .arrow {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            color: #333;
+        }
+
+        .arrow:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            BORDER-RADIUS: 43PX;
+            margin-bottom: 145PX;
+            MARGIN-RIGHT: 165PX;
+            MARGIN-LEFT: 165PX;
+            background-color: #333;
+            color: white;
+            padding: 75px;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer .help-center {
         width: 45%;
         margin: 0 auto;
         padding: 20px auto;
         text-align: center;
-      }
-      footer .help-center a{
-          color: #A8DADC;
-      }
+        }
 
-  </style>
-</head> 
+        footer .help-center a{
+            color: #A8DADC;
+        }
+    </style>
+</head>
 <body>
-  <header>
-    <div class="logo">logo</div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Package</a></li>
-        <li><a href="contactus.html">contact-us</a></li>       
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="header">
+            <div class="leftsection">
+                <img class="youtube-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAArlBMVEX///8AAAD9VAH5w0n9UQD5+fn9TgCkpKTw8PDt7e3n5+fV1dX5xUpRUVGysrKMjIzExMTc3Nxra2u7u7v9YhZMTEycnJxiYmJzc3N7e3s8PDwxMTERERH/8upYWFiSkpKEhIT/4tT/6+D5t0FFRUX9aicmJib9jVz6oDMYGBj+0778cxf+czn+28j+xqz7jSj6rzz+h1H7hCH+tJT+vp/9fkH+sIr+p3/+oID+mGuH7j+PAAAJ80lEQVR4nO2c6WKyuhZAEZnUiqgoKs7VOlZbO53v/V/sMGYiJLH2tL3f3euf0zYsd8ImCWoaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/DZPH08s/KS+nx8lPN+cXs3jZHNe+rhuGZRi67q+Pm5fFTzfqVzJ5ffMjTbGljOSB//wK+cWwfI9N6UViX+/Ln27eb2Ly4nNN5b58yC7E6c0qV5Xost5OP93I38HkQ7eEqmIs/QOSS9MenyVplSfXM5wY92t5WmXJdXz86cb+MCdf1VVka73/6eYSmBHf+417XaULIlv+r7Hl2L0wDNzv1PXo810ZJYWEsf66ccus1Rznsx+uNysJg09HyGl4Bdo13huXHFeGlY33lsUZ+K23L6lPHc9tdXq9ZjB3uQ0rUm9nJHacoJIxvLUpnUqBMOh7hfeZm4INy9IPl/N5u92ez4eDXtRl/fmCzO92xqhlxWbxcIajVULYjR966OPjxo1t4ciK2A3YuO+sCsPyz9v7u5z77dkv6DJeb2ydZg6JVj2oyar18g/Y8UMbB+je2Bq+rKhhfepthQErUhWbqmbEvp7O7NnS8K8ZtmqNNpuJ5oBqk1pm1JqUrBkO4F7RGh5lsiqVFvm2Da3BMC6kqtzX04EZ7NU6Yns27Ex7q/Chww5KM6pF4adkfUNm0bZOTMbo2yptKtNVPTPlhaVSP7j5Nzbr9AvtEdWg0adkNXZXZmY5AlljNERM6MSKXHFUpbq2tC3rWeEqEcmaMrJsukGjttIhMbJwevYlH5QikFXp5YUJnViGX+Yq1sXY0hVSqzSz8Oi+mnmebasVSqwsrR/GD8KbXQll5V9m/iETqzyvcluU2Y28DaWyUONGdf4nTV6pWpCl1e3W3OamJTdAKUJZQTo8P1LJYpxFrqKeeKbU+rzKtOHatt3Nm9/Nv2/KtByVk3YhQjSguf35IAgG836X9lCUxQcHcEt+i3JZfTfBRi1Ehc0rdfQH3thO2ro/UCPcS/pF9SAlOuN1O0m/qAyi36LRas3QN4bzWSsiHoe9vm330fg+iNza/S5xanUHxOA/GpLnOUaW2Z+m3zylKgcqwGqoVMJhWbndGnG+Tr5t8kwdvLATFjui8ZaGbeQx3VZekseJy4zh6c+mkcMVJkCVhReM6Zd2AT7TMbLw5c4cH7Y3ZQN0FE6VWBbKZaISTMIvyF4oTaxIVpVMLWO9pGU94IOPZPVLZA04z08zWWZrXHwRV9GsLHSIuBaa74oBduJOWyKLuJrqxIm/p3qhNLEiW2cytfwTLQvzSVkm77WIuakoqyxAS1ZB82S1Q3Q4cfM+yMTypYkVyXqiUuujTFZH+4wsp+RQK5WhqSTLDPgfx7qvkVVHQ19cJVLzDdZFqiq2dSFkWZuvlTXjvELKkcpqyQJcl1moR3eic/lkTcpS6IVMP8xG+BJZZQN8qSyP80LOrqEgq8v/LCtBVRYqEpPpsgk1vj8pySLLeOO45MmKxuigJLNmGr/+60WynB75zDgMqbE+GWPFsmpTUYDgWlm4Fya/8YTMEv9eSdYTMaOTTS9TsqZ21/PcuLZpu24XlQkjOyn14pZ0o/priE6cnbj+msez6GReNG2v0fBsUl9DKosTYEXIE9ZbpCwzoYtdjeNab2lcL+uekvXIyHpw6Uq9rIKvIw3oEEycF+P8UtGZ4eSIx3ihLPwIB6gR6T1Qk/UQhqMIMi3jvNcWVJWlJqtKykqXebCsHTutVHZtyJHl4AKJGIzxwT44Eln1Ci8APmmEohOi8NowHjw+JeteJKvw410hy+VHwcVAQyILnx/I5QtcTexE/VAkK73W/+puuCtM7l4ha54/M6bOWx5KOFsiC+UQPROIf0rRRI5IVnpU5ACv67cP8MX5yitkoeauqHeaaJydi2WZ6EGTCuCERIDPyMrydEKuVVi3lw5hYT7kCllNpnE5qBt1JLKm/ABYomhxsVxWvoA7OZKyzgqXO1FRSn6EKUpvkoWemdEhUA0bXW8KZfWIB6QsVL6IToelslr5aZy63FGYdIg5CC53vkYWfaz4MDoSWei1OS0L2f6ErBEx0UavryoMWtSQpevMhfRNslAv6tAh0PMDSTcMiDeSskq6p1TW+CHwyGrjkZqiEU8qZ72QnHRgp2hukoUSgK6H8PjckshC3W1FBaiNiTcpyBomU7qzvttw6MJs4dNzNNcllrGeKMuaSmXh6pGqh/DluCspHVD9SpfGqAlj0cQD70KagV41VEgtesXiWWNkFfbCXJFZuKbsEZdGNXyFVpfIwgVVkwhQR5kpXIhVkKWd6JUwyah190SvHL5KZaFrQ2YVlXdtiCelO+hga7iAH0kvd3AAvF+LmIkYCVwpyaL6oeyESM/AR912IpXloQGDLu45ssiFjCDtSGaXmHaI62+hLJOY+gvSsKbbxM+JhiwlWdoHdfjGRWDrrnqhl/r/aHJZ6NcO+1E3QuuePFnkTM94OpzNhk3iyn/XlsmiAuzSAMQzD8IVRCVZezq19PNdqS16sSIi33QkkFUjmjta9cK5QJbJWyNDzOhwPFniAMLEUpOl/WE2hpTU8ZHDC7MxBO05wrKKC+ZM+ztmuSxy0CmwqstlsVtzKDhtu17Wid7LZsRTNUVdd3f3B3bzH9rNJpLl0uuAQlmCOfRsmlO2YCENcKMs7U9h49+2WtjMVt2yW/+sdxRBJItZnAockSxiTos51Oz0IF035C2SJAFkm90UZS3XjK0oudIdpZmoeFcpu+9Pt454V4hIltag+la+8lwiS3O5PfEhP1T5irTNDRBKNwYqytJOhTsGLONw3j4lnu6qT9vzwWDvvzB04vYwoSytSw4keW1aJkvzOMukeK+CwvI9L0Ag3+yAP5XKKr1x44OVlezt9g+Hy+VyOPjxAxbjnfg8nvzjDqJtvJRTWWW/G15mYn9zxybP95V4uQhHraHVmmTWk7sxpBjAVdio5XVzEkemU6vxZU3eODfuGIaVwrvLwtqQWyQdO6Nky7DZsIe9MAxHvU5+4Ga3n32mWP3Uuy3kZDT3yDeYXv5V7fRhFqXfEARQvB+BbrJTrzt8W0ueLQHW27U3HZq1er1e9mMVqbUbnut6Df4dId8RoDSzoqse5RvoElfHv/9madG9ZosrcuuLbtz5H2b5LLiVnMQwVLZ0/+VMPpTuOYSbpFNOCgOXdYTb71MWH4Xis5BW/+/DFcH+uezm1eQ/QzaP33w78u9msn/Wef+vEj+1gX87YjGX78f0n3uMTFPyvz3HjwVkFZfFy+btuPb9yJXvr49v8I9QEpb70+vry+vptIcxHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA/4Z/AXUFyztmg1D7AAAAAElFTkSuQmCC">
+            </div>
+            
 
-  <section class="main-content">
-    <h1>Explore Premium Templates</h1>
-    <div class="template-cards">
-      <div class="card">
-        <img src="https://via.placeholder.com/200" alt="Template 1">
-        <h2>template</h2>
-        <p>Premium template</p>
-        <a href="#">Get Link</a>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/200" alt="Template 2">
-        <h2>template</h2>
-        <p> Premium template </p>
-        <a href="#">Get Link</a>
-      </div>
+            <div class="rightsection">
+                <p>Home</p>
+                <p>Package</p>
+                <p>Contact</p>
+            </div>
+            </div>
+    </header>
+
+    <div class="hero">
+        <h1>Explore Premium Templates</h1>
+        <div class="carousel-container">
+            <div class="carousel">
+                <!-- Template 1 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5dbfbe5b9bf13e1ebb54e91f/660ebdae3f89b76dc4919d9d_660dad997bc2e968c2f678e3_nero_thumbnail-p-500.png" alt="Template 1">
+                    <h3>FUSION CORE</h3>
+                    <p>A modern and sleek template designed for business websites.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 2 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883d05174b5fd78661a1db_d20538c4-0200-4d82-aa33-982e5ba1de99.webp" alt="Template 2">
+                    <h3>AIMER-INVESTMENT</h3>
+                    <p>Perfect for financial and investment portfolios.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 3 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/66f0f02a40c2b6dcb049905b_742e1ede-38b0-489f-be17-376709100394.webp" alt="Template 3">
+                    <h3>Template 3</h3>
+                    <p>An elegant template for creative portfolios.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 4 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/670e6a870537670ec026df9a_1728997047724_691526202_emilruder-20webflow-20cover.webp" alt="Template 4">
+                    <h3>Template 4</h3>
+                    <p>A versatile template for e-commerce websites.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 5 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883700ae6cfba59e9ff3bd_11da0d09-60d4-4021-ae68-10eb952d9784.webp" alt="Template 5">
+                    <h3>Template 5</h3>
+                    <p>A minimalistic template for blogs and personal websites.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 6 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/679041f08b475b6f23b20a2c_1729661417995_22302200_Thumbnail.webp" alt="Template 6">
+                    <h3>Template 6</h3>
+                    <p>A bold template for startups and tech companies.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 7 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883cc4174b5fd786614c09_dc5245cf-adea-460d-9afc-9d5fa1f97702.webp" alt="Template 7">
+                    <h3>Template 7</h3>
+                    <p>A clean and professional template for corporate websites.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 8 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883ba13b9a4cd5a35317c8_ee248d58-502b-4f74-85a7-f2b4e549e19d.webp" alt="Template 8">
+                    <h3>Template 8</h3>
+                    <p>A vibrant template for creative agencies.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 9 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/6788293192f337962c10c496_c9516290-c0d8-4674-ab65-0921080a21b6.webp" alt="Template 9">
+                    <h3>Template 9</h3>
+                    <p>A modern template for online portfolios.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 10 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/66e0672d77d9573ae0418ed6_1231d873-c804-4f37-b949-ab1d2edabf53.webp" alt="Template 10">
+                    <h3>Template 10</h3>
+                    <p>A sleek template for tech startups.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 11 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67904d09c97b7247218ac64e_2cea208a-4198-4218-ab0d-b3a9f3682df1.webp" alt="Template 11">
+                    <h3>Template 11</h3>
+                    <p>A minimalist template for personal blogs.</p>
+                    <button>Get Link</button>
+                </div>
+                <!-- Template 12 -->
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67904cfd1e6b8361f59ea164_1e458879-3b51-4342-be3a-69bdc2ca3bf8.webp" alt="Template 12">
+                    <h3>Template 12</h3>
+                    <p>A bold and modern template for creative studios.</p>
+                    <button>Get Link</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="arrow left">&#9665;</button>
+                <button class="arrow right">&#9655;</button>
+            </div>
+        </div>
     </div>
-  </section>
-  <footer>
-    <div class="help-center">
-      <h3>Help Center</h3>
-      <a href="contactus.html">Find answers to your questions</a>
-    </footer>
-    </div>
+
+    <script>
+        let currentIndex = 1; // Start with the second card as the active one
+        const cards = document.querySelectorAll('.card');
+        const carousel = document.querySelector('.carousel');
+        const leftArrow = document.querySelector('.left');
+        const rightArrow = document.querySelector('.right');
+
+        function updateCarousel() {
+            // Reset styles for all cards
+            cards.forEach((card, index) => {
+                card.classList.remove('active');
+                card.style.opacity = "0.5";
+                card.style.transform = "scale(0.8)";
+            });
+
+            // Make the active card and its adjacent cards visible
+            for (let i = currentIndex - 1; i <= currentIndex + 1; i++) {
+                const cardIndex = (i + cards.length) % cards.length;
+                const card = cards[cardIndex];
+                if (i === currentIndex) {
+                    card.classList.add('active');
+                    card.style.opacity = "1";
+                    card.style.transform = "scale(1.1)";
+                } else {
+                    card.style.opacity = "0.7";
+                    card.style.transform = "scale(0.9)";
+                }
+            }
+
+            // Adjust the carousel's position to center the active card
+            const offset = -currentIndex * 33.33;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length; // Loop backward
+            updateCarousel();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % cards.length; // Loop forward
+            updateCarousel();
+        });
+
+        updateCarousel(); // Initialize carousel on page load
+    </script>
+
+
+<div>
+    <footer>
+        <div class="help-center">
+            <h3>Help Center</h3>
+            <a href="contactus.html">Find Answers To Your Questions</a>
+        </footer>
+</div>
 </body>
 </html>
