@@ -1,159 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact-us</title>
+    <title>Premium Templates</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        font-family: Arial, sans-serif;
-        background-color: white;
-      }
-      
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #333;
-        color: white;
-        cursor: default;
-      }
-      
-      header .logo {
-        font-size: 24px;
-        font-weight: bold;
-      }
-      
-      header nav ul {
-        list-style-type: none;
-      }
-      
-      header nav ul li {
-        display: inline;
-        margin-right: 20px;
-      }
-      
-      header nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-      }
-        .contact-us {
-            background-color: #fff;
-            padding: 50px 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
             text-align: center;
-            margin-top: 50px;
-          }
-          
-          .contact-us h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-          }
-          
-          .contact-us p {
-            font-size: 18px;
-            margin-bottom: 25px;
-          }
-          
-          .contact-us form {
-            max-width: 600px;
-            margin: 0 auto;
-          }
-          
-          .contact-us textarea {
-            width: 100%;
-            height: 150px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-          }
-          
-          .contact-us button {
-            margin-top: 15px;
-            padding: 10px 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             background-color: #333;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: default;
+        }
+
+        .hero {
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .card {
+            flex: 0 0 33.33%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .card button {
+            background-color: #007bff;
             color: white;
             border: none;
+            padding: 10px 20px;
+            font-size: 14px;
             border-radius: 5px;
-            font-size: 16px;
-          }
+            cursor: pointer;
+        }
 
+        .card button:hover {
+            background-color: #0056b3;
+        }
 
-          footer {
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .arrow {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        footer {
             background-color: #333;
             color: white;
             padding: 20px;
-            display: flex;
-            justify-content: space-between;
-          }
-          
-          footer .quick-links{
-            width: 45%;
-          }
-          
-          footer h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #A8DADC;
-          }
-          
-          footer ul {
-            list-style-type: none;
-          }
-          
-          footer ul li {
-            margin-bottom: 8px;
-          }
-          
-          footer ul li a {
-            color: white;
-            text-decoration: none;
-          }
-          
-          footer a {
-            color: #ffcc00;
-          }
-          
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">logo</div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Package</a></li>   
-      </ul>
-    </nav>
-  </header>
-    <section class="contact-us">
-        <h2>Contact Us</h2>
-        <p>Tell us more, and we will find the best solution for you</p>
-        <form>
-          <textarea placeholder="Describe your issue..."></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </section>
-    
-      <footer>
-        <div class="quick-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Reset Password</a></li>
-            <li><a href="#">Update Email</a></li>
-            <li><a href="#">Get Help Signing In</a></li>
-            <li><a href="#">Update Payment Method</a></li>
-          </ul>
+    <header>
+        <div class="logo">logo</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Packages</a></li>
+                <li><a href="contactus2.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Explore Premium Templates</h1>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5dbfbe5b9bf13e1ebb54e91f/660ebdae3f89b76dc4919d9d_660dad997bc2e968c2f678e3_nero_thumbnail-p-500.png"
+                        alt="Template 1">
+                    <h3>Template 1</h3>
+                    <p>Modern and sleek business template.</p>
+                    <button>Get Link</button>
+                </div>
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883d05174b5fd78661a1db_d20538c4-0200-4d82-aa33-982e5ba1de99.webp"
+                        alt="Template 2">
+                    <h3>Template 2</h3>
+                    <p>Perfect for creative agencies.</p>
+                    <button>Get Link</button>
+                </div>
+                <div class="card">
+                    <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/66f0f02a40c2b6dcb049905b_742e1ede-38b0-489f-be17-376709100394.webp"
+                        alt="Template 3">
+                    <h3>Template 3</h3>
+                    <p>Ideal for startups and tech companies.</p>
+                    <button>Get Link</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="arrow left">&#9665;</button>
+                <button class="arrow right">&#9655;</button>
+            </div>
         </div>
-        
-      </footer>
+    </div>
+
+    <footer>
+        <h3>Help Center</h3>
+        <a href="contactus2.html">Find answers to your questions</a>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+        const carousel = document.querySelector('.carousel');
+        const leftArrow = document.querySelector('.left');
+        const rightArrow = document.querySelector('.right');
+
+        function updateCarousel() {
+            const offset = -currentIndex * 33.33;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        });
+    </script>
 </body>
+
 </html>
