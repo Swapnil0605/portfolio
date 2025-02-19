@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+            backdrop-filter: blur(10px); /* Glass blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Soft glow effect */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+        }
+        .download-btn {
+            background-color: rgba(0, 123, 255, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background-color: rgba(0, 123, 255, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 id="title">Image Title</h2>
+    <img id="image" src="" alt="Selected Image">
+    <p id="desc">Image Description</p>
+    
+    <button class="download-btn" id="download-tar">Download as TAR</button>
+    <button class="download-btn" id="download-zip">Download as ZIP</button>
+</div>
+
+<script>
+    // Extract URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const imgSrc = params.get("src");
+    const imgTitle = params.get("title");
+    const imgDesc = params.get("desc");
+
+    // Set image details dynamically
+    document.getElementById("image").src = imgSrc;
+    document.getElementById("title").innerText = imgTitle;
+    document.getElementById("desc").innerText = imgDesc;
+
+    // TAR and ZIP Download Buttons
+    document.getElementById("download-tar").addEventListener("click", function () {
+        downloadAs("tar");
+    });
+
+    document.getElementById("download-zip").addEventListener("click", function () {
+        downloadAs("zip");
+    });
+
+    function downloadAs(format) {
+        fetch(imgSrc)
+            .then(response => response.blob())
+            .then(blob => {
+                const fileName = imgSrc.split("/").pop().split("?")[0];
+                const zip = new JSZip();
+                zip.file(fileName, blob);
+
+                zip.generateAsync({ type: "blob" }).then(content => {
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(content);
+                    a.download = `image.${format}`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                });
+            })
+            .catch(error => {
+                console.error("Download failed:", error);
+                alert("Failed to download the image.");
+            });
+    }
+</script>
+
+<!-- Include JSZip for packaging -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+</body>
+</html>
