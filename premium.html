@@ -5,17 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Templates Carousel</title>
     <style>
+            @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .a {
+            animation: slideIn 1s ease-in;
+        }
+
+        .b {
+            animation: slideIn 1s ease-in;
+        }
+
+        .c {
+            animation: slideIn 1s ease-in;
+        }
+
+
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
 
         body {
             font-family: Arial, sans-serif;
             background-color: #1c1c1c;
             color: #fff;
             text-align: center;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/006/852/804/original/abstract-blue-background-simple-design-for-your-website-free-vector.jpg)  ;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment : fixed;
         }
 
         .header{
@@ -59,12 +106,36 @@
 
         .rightsection{
             margin-right: 20px;
-            width: 180px;
+            width: 240px;
             align-items: center;
             display: flex;
             color: rgb(255, 255, 255);
             justify-content: space-between;
-            flex-shrink: 0;
+            flex-shrink: 0;            
+        }
+        .a{
+            padding: 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            
+        }
+
+        .b{
+            padding: 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .c{
+            padding: 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
         }
 
         .hero {
@@ -78,10 +149,10 @@
 
         .carousel-container {
             position: relative;
-            width: 55%;
+            width: 63%;
             margin: 20px auto;
             overflow: hidden;
-            padding: 19px;
+            padding: 35px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -183,21 +254,69 @@
             height: 200px;
             display: flex;
             justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            
         }
 
         footer .help-center {
-        width: 45%;
-        margin: 0 auto;
-        padding: 20px auto;
-        text-align: center;
+            width: 45%;
+            margin: 0 auto;
+            padding: 20px auto;
+            text-align: center;
         }
 
         footer .help-center a{
             color: #A8DADC;
         }
+
+        .center-card{
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        @media (max-width: 1024px) {
+            .card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .rightsection {
+                display: none; /* Hide header links on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+            }
+
+            .card p {
+                font-size: 0.8rem;
+            }
+
+            .card button {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
+    
     <header>
         <div class="header">
             <div class="leftsection">
@@ -206,9 +325,9 @@
             
 
             <div class="rightsection">
-                <p>Home</p>
-                <p>Package</p>
-                <p>Contact</p>
+                <p class="a" >Home</p>
+                <p class="b">Package</p>
+                <p class="c">Contact</p>
             </div>
             </div>
     </header>
@@ -225,7 +344,7 @@
                     <button>Get Link</button>
                 </div>
                 <!-- Template 2 -->
-                <div class="card">
+                <div class="card center-card">
                     <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/67883d05174b5fd78661a1db_d20538c4-0200-4d82-aa33-982e5ba1de99.webp" alt="Template 2">
                     <h3>AIMER-INVESTMENT</h3>
                     <p>Perfect for financial and investment portfolios.</p>
@@ -309,51 +428,53 @@
         </div>
     </div>
 
+
     <script>
         let currentIndex = 1; // Start with the second card as the active one
-        const cards = document.querySelectorAll('.card');
-        const carousel = document.querySelector('.carousel');
-        const leftArrow = document.querySelector('.left');
-        const rightArrow = document.querySelector('.right');
+const cards = document.querySelectorAll('.card');
+const carousel = document.querySelector('.carousel');
+const leftArrow = document.querySelector('.left');
+const rightArrow = document.querySelector('.right');
 
-        function updateCarousel() {
-            // Reset styles for all cards
-            cards.forEach((card, index) => {
-                card.classList.remove('active');
-                card.style.opacity = "0.5";
-                card.style.transform = "scale(0.8)";
-            });
+function updateCarousel() {
+    // Reset styles for all cards
+    cards.forEach((card, index) => {
+        card.classList.remove('active', 'center-card');
+        card.style.opacity = "0.5";
+        card.style.transform = "scale(0.8)";
+    });
 
-            // Make the active card and its adjacent cards visible
-            for (let i = currentIndex - 1; i <= currentIndex + 1; i++) {
-                const cardIndex = (i + cards.length) % cards.length;
-                const card = cards[cardIndex];
-                if (i === currentIndex) {
-                    card.classList.add('active');
-                    card.style.opacity = "1";
-                    card.style.transform = "scale(1.1)";
-                } else {
-                    card.style.opacity = "0.7";
-                    card.style.transform = "scale(0.9)";
-                }
-            }
-
-            // Adjust the carousel's position to center the active card
-            const offset = -currentIndex * 33.33;
-            carousel.style.transform = `translateX(${offset}%)`;
+    // Make the active card and its adjacent cards visible
+    for (let i = currentIndex - 1; i <= currentIndex + 1; i++) {
+        const cardIndex = (i + cards.length) % cards.length;
+        const card = cards[cardIndex];
+        if (i === currentIndex) {
+            card.classList.add('active', 'center-card'); // Add center-card class
+            card.style.opacity = "1";
+            card.style.transform = "scale(1.2)"; // Scale up the center card
+        } else {
+            card.style.opacity = "0.7";
+            card.style.transform = "scale(0.9)";
         }
+    }
 
-        leftArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length; // Loop backward
-            updateCarousel();
-        });
+    // Calculate the offset to center the active card
+    const cardWidth = cards[0].offsetWidth + 38; // Card width + margin
+    const offset = -currentIndex * cardWidth + (carousel.offsetWidth / 2 - cardWidth / 2);
+    carousel.style.transform = `translateX(${offset}px)`;
+}
 
-        rightArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % cards.length; // Loop forward
-            updateCarousel();
-        });
+leftArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length; // Loop backward
+    updateCarousel();
+});
 
-        updateCarousel(); // Initialize carousel on page load
+rightArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length; // Loop forward
+    updateCarousel();
+});
+
+updateCarousel(); // Initialize carousel on page load
     </script>
 
 
