@@ -485,5 +485,24 @@ updateCarousel(); // Initialize carousel on page load
             <a href="contactus.html">Find Answers To Your Questions</a>
         </footer>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".card button");
+    
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                const card = button.closest(".card");
+                const img = card.querySelector("img");
+                const imgSrc = img.src;
+                const imgTitle = card.querySelector("h3").innerText;
+                const imgDesc = card.querySelector("p").innerText;
+    
+                // Redirect to the new image page
+                const url = `Downloadpage.html?src=${encodeURIComponent(imgSrc)}&title=${encodeURIComponent(imgTitle)}&desc=${encodeURIComponent(imgDesc)}`;
+                window.location.href = url;
+            });
+        });
+    });
+</script>    
 </body>
 </html>
